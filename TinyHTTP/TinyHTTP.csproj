@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HttpContentType.cs" />
     <Compile Include="HttpRequestData.cs" />
     <Compile Include="HttpRequestResult.cs" />
     <Compile Include="HttpRequestType.cs" />
