@@ -35,6 +35,7 @@ namespace TinyHTTP
         /// Link: http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types
         /// </summary>
         #region Standard Application Content Types
+        public static readonly HttpContentType UrlEncoded = new HttpContentType("application/x-www-form-urlencoded");
         public static readonly HttpContentType AtomFeed = new HttpContentType("application/atom+xml");
         public static readonly HttpContentType EcmaScript = new HttpContentType("application/ecmascript");
         public static readonly HttpContentType EdiX12 = new HttpContentType("application/EDI-X12");

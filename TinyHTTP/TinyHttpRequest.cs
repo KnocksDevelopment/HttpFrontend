@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Threading;
 
 namespace TinyHTTP
 {
@@ -19,6 +21,8 @@ namespace TinyHTTP
         protected IWebProxy WebProxy = null;
         protected HttpContentType RequestContentType = HttpContentType.UrlEncoded;
         protected Encoding RequestEncoding = Encoding.ASCII;
+
+        protected readonly BackgroundWorker RequestWorker = new BackgroundWorker();
 
         #region Constructors
         /// <summary>
@@ -46,6 +50,9 @@ namespace TinyHTTP
                 throw new ArgumentException("url");
             this.Url = url;
             this.Data = data;
+            // initialize our BackgroundWorker.
+            RequestWorker.DoWork += OnWorkerExecute;
+            RequestWorker.RunWorkerCompleted += OnWorkerCompleted;
         }
 
         /// <summary>
@@ -193,16 +200,86 @@ namespace TinyHTTP
 
             string responseBody;
             HttpStatusCode responseCode;
+            HttpContentType responseContentType;
             using (var response = (HttpWebResponse) request.GetResponse())
             {
                 responseCode = response.StatusCode;
+                responseContentType = new HttpContentType(response.ContentType);
 // ReSharper disable once AssignNullToNotNullAttribute
                 using (var reader = new StreamReader(response.GetResponseStream()))
                 {
                     responseBody = reader.ReadToEnd();
                 }
             }
-            return new HttpRequestResult(responseBody, responseCode);
+            var result = new HttpRequestResult(responseBody, responseCode);
+            result.ContentType = responseContentType;
+            return result;
+        }
+        #endregion
+        #region Threaded Request Methods
+        /// <summary>
+        /// Sets up the BackgroundWorker to start, and starts it.
+        /// </summary>
+        public void MakeThreadedRequest()
+        {
+            MakeThreadedRequest(GetJoinedParameters());
+        }
+        /// <summary>
+        /// Sets up the BackgroundWorker with user-defined raw data, and starts it.
+        /// </summary>
+        /// <param name="rawData"></param>
+        public void MakeThreadedRequest(String rawData)
+        {
+            if (RequestWorker.IsBusy)
+                throw new RequestAlreadyRunningException("Request already running!", RequestUrl);
+            RequestWorker.RunWorkerAsync(rawData);
+        }
+        #endregion
+        #region Non-public BackgroundWorker Callbacks
+        /// <summary>
+        /// Handles when the BackgroundWorker is executed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        protected void OnWorkerExecute(object sender, DoWorkEventArgs args)
+        {
+            var rawData = args.Argument as string;
+            if (args.Cancel)
+            {
+                args.Result = null;
+                return;
+            }
+            HttpRequestResult result = null;
+            try
+            {
+                result = MakeUnthreadedRequest(rawData);
+            }
+// ReSharper disable once EmptyGeneralCatchClause
+            catch (Exception e)
+            {
+                if (OnFailedRequest != null)
+                    OnFailedRequest(e);
+            }
+            args.Result = result;
+        }
+        /// <summary>
+        /// Handles when the BackgroundWorker is done.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        protected void OnWorkerCompleted(object sender, RunWorkerCompletedEventArgs args)
+        {
+            if (args.Result == null)
+                return;
+            var result = args.Result as HttpRequestResult;
+            try
+            {
+                if (OnSuccessfulRequest != null)
+                    OnSuccessfulRequest(result);
+            }
+// ReSharper disable once EmptyGeneralCatchClause
+            catch
+            {}
         }
         #endregion
     }
