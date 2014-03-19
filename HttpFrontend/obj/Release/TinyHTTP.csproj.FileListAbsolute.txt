@@ -1,5 +1,0 @@
-C:\Users\Daniel\documents\visual studio 2013\Projects\TinyHTTP\TinyHTTP\bin\Release\TinyHTTP.dll
-C:\Users\Daniel\documents\visual studio 2013\Projects\TinyHTTP\TinyHTTP\bin\Release\TinyHTTP.pdb
-C:\Users\Daniel\documents\visual studio 2013\Projects\TinyHTTP\TinyHTTP\obj\Release\TinyHTTP.csprojResolveAssemblyReference.cache
-C:\Users\Daniel\documents\visual studio 2013\Projects\TinyHTTP\TinyHTTP\obj\Release\TinyHTTP.dll
-C:\Users\Daniel\documents\visual studio 2013\Projects\TinyHTTP\TinyHTTP\obj\Release\TinyHTTP.pdb

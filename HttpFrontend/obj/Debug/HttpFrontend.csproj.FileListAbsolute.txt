@@ -1,5 +1,0 @@
-C:\Users\Daniel\Documents\Visual Studio 2013\Projects\HttpFrontend\HttpFrontend\bin\Debug\TinyHTTP.dll
-C:\Users\Daniel\Documents\Visual Studio 2013\Projects\HttpFrontend\HttpFrontend\bin\Debug\TinyHTTP.pdb
-C:\Users\Daniel\Documents\Visual Studio 2013\Projects\HttpFrontend\HttpFrontend\obj\Debug\HttpFrontend.csprojResolveAssemblyReference.cache
-C:\Users\Daniel\Documents\Visual Studio 2013\Projects\HttpFrontend\HttpFrontend\obj\Debug\TinyHTTP.dll
-C:\Users\Daniel\Documents\Visual Studio 2013\Projects\HttpFrontend\HttpFrontend\obj\Debug\TinyHTTP.pdb
