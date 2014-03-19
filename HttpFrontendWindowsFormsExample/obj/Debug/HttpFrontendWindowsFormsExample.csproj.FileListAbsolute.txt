@@ -1,0 +1,11 @@
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\HttpFrontend\HttpFrontendWindowsFormsExample\bin\Debug\TinyHTTPWindowsFormsExample.exe.config
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\HttpFrontend\HttpFrontendWindowsFormsExample\bin\Debug\TinyHTTPWindowsFormsExample.exe
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\HttpFrontend\HttpFrontendWindowsFormsExample\bin\Debug\TinyHTTPWindowsFormsExample.pdb
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\HttpFrontend\HttpFrontendWindowsFormsExample\bin\Debug\TinyHTTP.dll
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\HttpFrontend\HttpFrontendWindowsFormsExample\bin\Debug\TinyHTTP.pdb
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\HttpFrontend\HttpFrontendWindowsFormsExample\obj\Debug\HttpFrontendWindowsFormsExample.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\HttpFrontend\HttpFrontendWindowsFormsExample\obj\Debug\HttpFrontendWindowsFormsExample.MainForm.resources
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\HttpFrontend\HttpFrontendWindowsFormsExample\obj\Debug\TinyHTTPWindowsFormsExample.Properties.Resources.resources
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\HttpFrontend\HttpFrontendWindowsFormsExample\obj\Debug\HttpFrontendWindowsFormsExample.csproj.GenerateResource.Cache
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\HttpFrontend\HttpFrontendWindowsFormsExample\obj\Debug\TinyHTTPWindowsFormsExample.exe
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\HttpFrontend\HttpFrontendWindowsFormsExample\obj\Debug\TinyHTTPWindowsFormsExample.pdb
