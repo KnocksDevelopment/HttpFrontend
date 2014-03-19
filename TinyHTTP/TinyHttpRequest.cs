@@ -130,7 +130,7 @@ namespace TinyHTTP
         /// </summary>
         /// <param name="result"></param>
         /// <returns></returns>
-        public delegate string ProcessSuccessfulRequest(HttpRequestResult result);
+        public delegate void ProcessSuccessfulRequest(HttpRequestResult result);
         /// <summary>
         /// Callback delegate for handling failed requests.
         /// </summary>
