@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.IO;
 using System.Net;
 using System.Text;
-using System.Threading;
 
 namespace TinyHTTP
 {
@@ -228,7 +227,7 @@ namespace TinyHTTP
         /// Sets up the BackgroundWorker with user-defined raw data, and starts it.
         /// </summary>
         /// <param name="rawData"></param>
-        public void MakeThreadedRequest(String rawData)
+        public void MakeThreadedRequest(string rawData)
         {
             if (RequestWorker.IsBusy)
                 throw new RequestAlreadyRunningException("Request already running!", RequestUrl);

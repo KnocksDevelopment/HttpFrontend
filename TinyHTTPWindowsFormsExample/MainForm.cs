@@ -13,14 +13,14 @@ namespace TinyHTTPWindowsFormsExample
 
         private void buttonUnthreaded_Click(object sender, EventArgs e)
         {
-            TinyHttpRequest request = new TinyHttpRequest(this.textboxUrl.Text);
-            HttpRequestResult result = request.MakeUnthreadedRequest();
+            var request = new TinyHttpRequest(this.textboxUrl.Text);
+            var result = request.MakeUnthreadedRequest();
             textBoxSource.Text = result.Body;
         }
 
         private void buttonThreaded_Click(object sender, EventArgs e)
         {
-            TinyHttpRequest request = new TinyHttpRequest(this.textboxUrl.Text);
+            var request = new TinyHttpRequest(this.textboxUrl.Text);
             request.OnSuccessfulRequest += (result) =>
             {
                 textBoxSource.Text = result.Body;
